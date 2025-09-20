@@ -1,101 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon site perso</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #4e54c8, #8f94fb);
-      color: white;
-      text-align: center;
-    }
-
-    header {
-      padding: 50px 20px;
-    }
-
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      opacity: 0.9;
-    }
-
-    nav {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 15px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      padding: 60px 20px;
-    }
-
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    section p {
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.1em;
-    }
-
-    footer {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 20px;
-      font-size: 0.9em;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Luna Vintage — Boutique</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="description" content="Boutique Luna Vintage - articles rétro et vintages" />
 </head>
 <body>
-<header>
-  <img src="Logo Luna Vintage avec étoile filante.png" alt="Logo Luna Vintage" width="150">
-  <h1>Luna Vintage</h1>
-  <p>Un petit site perso hébergé gratuitement avec GitHub Pages</p>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="images/logo.png" alt="Luna Vintage" class="logo" />
+        <div>
+          <h1>Luna Vintage</h1>
+          <p class="tag">Objets & vêtements rétro</p>
+        </div>
+      </div>
 
-  <nav>
-    <a href="#about">À propos</a>
-    <a href="#projects">Projets</a>
-    <a href="#contact">Contact</a>
-  </nav>
+      <div class="header-actions">
+        <input id="search" type="search" placeholder="Rechercher..." aria-label="Rechercher produits" />
+        <button id="cart-btn" class="cart-btn" aria-haspopup="dialog" aria-controls="cart-drawer">
+          🛒 <span id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <section id="about">
-    <h2>À propos de moi</h2>
-    <p>Je suis en train d’apprendre à créer des sites web. Ce site est mon premier projet hébergé avec GitHub Pages ! 🎉</p>
-  </section>
+  <main class="container">
+    <section class="hero">
+      <h2>Bienvenue dans la boutique</h2>
+      <p>Découvre les pièces vintage sélectionnées avec amour.</p>
+    </section>
 
-  <section id="projects">
-    <h2>Mes projets</h2>
-    <p>Prochainement, je mettrai ici mes créations, mes idées ou mes travaux.</p>
-  </section>
+    <section id="products" class="products-grid" aria-live="polite">
+      <!-- Les cartes produits sont injectées par JS -->
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Tu peux me joindre à <strong>monemail@example.com</strong></p>
-  </section>
+    <section id="checkout" class="checkout hidden">
+      <h2>Passer la commande</h2>
+      <form id="checkout-form" novalidate>
+        <div class="form-row">
+          <label>Nom complet<input name="name" required /></label>
+          <label>Email<input name="email" type="email" required /></label>
+        </div>
+        <div class="form-row">
+          <label>Adresse<input name="address" required /></label>
+          <label>Ville<input name="city" required /></label>
+        </div>
+        <div class="form-row">
+          <label>Code postal<input name="zip" required /></label>
+          <label>Pays<input name="country" required /></label>
+        </div>
 
-  <footer>
-    <p>&copy; 2025 - Mon site perso | Fait avec test et GitHub Pages</p>
-  </footer>
+        <div class="order-summary" id="order-summary"></div>
+
+        <button type="submit" class="btn primary">Confirmer la commande</button>
+        <button type="button" class="btn" id="cancel-checkout">Annuler</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Panier - Drawer -->
+  <aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Panier</h3>
+      <button id="close-cart" aria-label="Fermer le panier">✖</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="totals">
+        <div>Sous-total: <strong id="subtotal">0,00 €</strong></div>
+      </div>
+      <div class="cart-actions">
+        <button id="clear-cart" class="btn">Vider</button>
+        <button id="go-checkout" class="btn primary">Commander</button>
+      </div>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" aria-live="assertive"></div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
