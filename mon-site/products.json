@@ -1,0 +1,30 @@
+[
+  {
+    "id": "p1",
+    "title": "Robe rétro 70's",
+    "price": 49.00,
+    "image": "https://via.placeholder.com/600x600?text=Robe+Retro",
+    "description": "Robe vintage en bon état, taille M."
+  },
+  {
+    "id": "p2",
+    "title": "Lampe Art déco",
+    "price": 89.50,
+    "image": "https://via.placeholder.com/600x600?text=Lampe+Art+Deco",
+    "description": "Lampe unique vintage, abat-jour inclus."
+  },
+  {
+    "id": "p3",
+    "title": "Casquette velours",
+    "price": 19.90,
+    "image": "https://via.placeholder.com/600x600?text=Casquette",
+    "description": "Casquette rétro, ajustable."
+  },
+  {
+    "id": "p4",
+    "title": "Montre mécanique vintage",
+    "price": 129.00,
+    "image": "https://via.placeholder.com/600x600?text=Montre",
+    "description": "Montre fonctionnelle, révisée."
+  }
+]
